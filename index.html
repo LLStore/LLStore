@@ -3,30 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Logan’s Finds</title>
+  <title>LLStore</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --accent: #ff9900; /* Amazon orange */
-      --light-bg: #f8f9fa;
+      --accent: #ff9900;
+      --bg: #f8f9fa;
       --card-bg: #ffffff;
       --text: #333;
-      --font-main: 'Poppins', sans-serif;
-      --font-secondary: 'Nunito', sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: var(--light-bg);
-      font-family: var(--font-main);
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
       color: var(--text);
       display: flex;
       flex-direction: column;
@@ -34,63 +27,50 @@
     }
 
     header {
-      text-align: center;
       background: var(--card-bg);
+      text-align: center;
       padding: 2rem 1rem 1rem;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
-    header h1 {
-      font-weight: 700;
-      font-size: 2rem;
-      color: var(--accent);
-    }
-
-    header p {
-      font-family: var(--font-secondary);
-      color: #555;
-      margin-top: 0.5rem;
-    }
+    header h1 { color: var(--accent); font-weight: 700; font-size: 2rem; }
+    header p { color: #666; font-family: 'Nunito', sans-serif; margin-top: 0.3rem; }
 
     .search-container {
       margin: 1rem auto 2rem;
-      max-width: 500px;
+      max-width: 600px;
       width: 90%;
     }
 
     .search-container input {
       width: 100%;
-      padding: 0.7rem 1rem;
+      padding: 0.8rem 1rem;
       border: 1px solid #ccc;
       border-radius: 10px;
       font-size: 1rem;
       outline: none;
       transition: border-color 0.2s;
     }
-
-    .search-container input:focus {
-      border-color: var(--accent);
-    }
+    .search-container input:focus { border-color: var(--accent); }
 
     main {
       flex: 1;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
-      padding: 1rem 2rem;
-      max-width: 1200px;
+      padding: 2rem;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
     .product-card {
-      background-color: var(--card-bg);
+      background: var(--card-bg);
       border-radius: 15px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       overflow: hidden;
+      text-align: center;
       transition: transform 0.2s, box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      cursor: pointer;
     }
 
     .product-card:hover {
@@ -98,172 +78,85 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     }
 
-    .product-image img {
-      width: 100%;
-      height: 220px;
-      object-fit: contain;
-      background: #fff;
-      padding: 1rem;
+    .product-image {
+      height: 230px;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #aaa;
     }
 
     .product-info {
-      padding: 1rem 1.2rem;
-      flex-grow: 1;
-    }
-
-    .product-info h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: #222;
-    }
-
-    .product-info p {
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 0.8rem;
-    }
-
-    .price {
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-      color: #111;
-    }
-
-    .view-btn {
-      background-color: var(--accent);
-      color: #fff;
-      text-align: center;
-      padding: 0.7rem;
-      margin: 0 1rem 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      font-family: var(--font-secondary);
-      transition: background-color 0.2s, transform 0.2s;
-    }
-
-    .view-btn:hover {
-      background-color: #f7a83a;
-      transform: scale(1.03);
+      padding: 1rem;
     }
 
     footer {
       background: var(--card-bg);
-      padding: 1rem;
       text-align: center;
+      padding: 1rem;
       box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
     }
 
-    footer .socials a {
-      margin: 0 10px;
-      color: var(--accent);
-      font-size: 1.4rem;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    footer .socials a:hover {
-      color: #222;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.6rem;
-      }
+    footer p {
+      color: #666;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Logan’s Finds</h1>
-    <p>Products I actually use and love ❤️</p>
+    <h1>LLStore</h1>
+    <p>Products coming soon — handpicked favorites</p>
   </header>
 
   <div class="search-container">
     <input type="text" id="searchBar" placeholder="Search products..." />
   </div>
 
-  <main id="productGrid">
-    <!-- Products will be injected here by JavaScript -->
-  </main>
+  <main id="productGrid"></main>
 
   <footer>
-    <div class="socials">
-      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    </div>
-    <p style="font-size: 0.85rem; color:#666;">© 2025 Logan’s Finds</p>
+    <p>© 2025 LLStore | Built with ❤️</p>
   </footer>
 
-  <!-- Font Awesome for social icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
   <script>
-    /* 
-      ===============================
-      Product Data Section
-      ===============================
-      👉 Replace the placeholder links with your own Amazon affiliate links later.
-      👉 Paste your Amazon Associate affiliate code inside each 'link' field.
-    */
-
-    const products = [
-      {
-        title: "Caraway Non-Toxic Ceramic Cookware Set",
-        description: "Beautiful PFAS-free cookware that’s safe, stylish, and durable.",
-        price: "$395 (approx.)",
-        image: "https://m.media-amazon.com/images/I/71Rzm3dY6nL._AC_SL1500_.jpg",
-        link: "https://www.amazon.com/dp/B08XYZ/?tag=YOUR-AFFILIATE-CODE"
-      },
-      {
-        title: "Hydro Flask Stainless Steel Water Bottle",
-        description: "Keeps drinks cold for 24 hours or hot for 12. BPA-free and durable.",
-        price: "$39 (approx.)",
-        image: "https://m.media-amazon.com/images/I/61zQ7brm5RL._AC_SL1500_.jpg",
-        link: "https://www.amazon.com/dp/B07XYZ/?tag=YOUR-AFFILIATE-CODE"
-      },
-      {
-        title: "Logitech MX Master 3S Mouse",
-        description: "Ergonomic design, quiet clicks, and ultra-fast scrolling.",
-        price: "$99 (approx.)",
-        image: "https://m.media-amazon.com/images/I/61ni3t1ryQL._AC_SL1500_.jpg",
-        link: "https://www.amazon.com/dp/B0BXYZ/?tag=YOUR-AFFILIATE-CODE"
-      }
-    ];
+    // Temporary blank products
+    const products = Array.from({ length: 12 }).map((_, i) => ({
+      id: i + 1,
+      title: "Product " + (i + 1),
+      description: "Product details coming soon.",
+      image: "",
+      price: "—",
+    }));
 
     const productGrid = document.getElementById('productGrid');
 
     function displayProducts(items) {
       productGrid.innerHTML = items.map(product => `
-        <div class="product-card">
-          <div class="product-image">
-            <img src="${product.image}" alt="${product.title}">
-          </div>
+        <div class="product-card" onclick="openProduct(${product.id})">
+          <div class="product-image">Image</div>
           <div class="product-info">
             <h3>${product.title}</h3>
-            <p>${product.description}</p>
-            <div class="price">${product.price}</div>
+            <p>${product.price}</p>
           </div>
-          <button class="view-btn" onclick="window.open('${product.link}', '_blank')">
-            View on Amazon
-          </button>
         </div>
       `).join('');
     }
 
-    displayProducts(products);
+    function openProduct(id) {
+      window.location.href = `product.html?id=${id}`;
+    }
 
-    // Simple search functionality
     const searchBar = document.getElementById('searchBar');
     searchBar.addEventListener('keyup', (e) => {
       const query = e.target.value.toLowerCase();
       const filtered = products.filter(p => p.title.toLowerCase().includes(query));
       displayProducts(filtered);
     });
-  </script>
 
+    displayProducts(products);
+  </script>
 </body>
 </html>
